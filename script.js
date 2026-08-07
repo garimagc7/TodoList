@@ -1,6 +1,6 @@
 let todoList = [{
     name: 'washing dishes' ,
-    date: 2026-9-18
+    date: '2026-09-16'
 }];
 showInput();
 function showInput(){
