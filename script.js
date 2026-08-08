@@ -5,24 +5,26 @@ let todoList = [{
 showInput();
 function showInput(){
     let todoListHTML = '';
-
-    for (let i = 0; i < todoList.length; i++) {
-        const todoObject = todoList[i];
-        //const name = todoObject.name;
-        //const dueDate = todoObject.dueDate;
+    todoList.forEach((todoObject, index) => {
         const { name, date } = todoObject;
         const html = `
         <div>${name}</div>
         <div>${date}</div>
-        <button onclick="
-            todoList.splice(${i}, 1);
-            showInput();
-        " class="delete-todo-button">Delete</button> 
+        <button  class="delete-todo-button js-delete-todo-button">Delete</button> 
         `;
         todoListHTML += html;
-    }
+    });
     document.querySelector('.showtodo-list').innerHTML = todoListHTML;
+    document.querySelectorAll('.js-delete-todo-button').forEach((deletebutton,index) => {
+    deletebutton.addEventListener('click', () =>{
+            todoList.splice(index, 1);
+            showInput();
+    });
+    });
 }
+document.querySelector('.js-add-todo-button').addEventListener('click',() => {
+ jsInput();   
+});
 
 function jsInput(){
     const todoname=document.querySelector('.js-input-todo');
