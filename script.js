@@ -8,7 +8,7 @@ function showInput(){
         <div>${name}</div>
         <div>${date}</div>
         <div>${createdAt}</div>
-        <button  class="delete-todo-button js-delete-todo-button">Delete</button> 
+        <button  class="delete-todo-button js-delete-todo-button"><img height="18px" src="assets/delete.svg">Delete</button> 
         `;
         todoListHTML += html;
     });
@@ -30,8 +30,11 @@ function jsInput(){
     const dateList = document.querySelector('.js-input-date');
     const date = dateList.value;
     const createdAt = new Date().toLocaleString();
-
+     if (name === '' || date === '') {
+        return;
+    }
     todoList.push({name, date, createdAt});
     todoname.value = '';
+    dateList.value = '';
     showInput();
 }
