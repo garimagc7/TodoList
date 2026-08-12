@@ -1,15 +1,13 @@
-let todoList = [{
-    name: 'washing dishes' ,
-    date: '2026-09-16'
-}];
+let todoList = [];
 showInput();
 function showInput(){
     let todoListHTML = '';
     todoList.forEach((todoObject, index) => {
-        const { name, date } = todoObject;
+        const { name, date, createdAt } = todoObject;
         const html = `
         <div>${name}</div>
         <div>${date}</div>
+        <div>${createdAt}</div>
         <button  class="delete-todo-button js-delete-todo-button">Delete</button> 
         `;
         todoListHTML += html;
@@ -31,8 +29,9 @@ function jsInput(){
     const name = todoname.value;
     const dateList = document.querySelector('.js-input-date');
     const date = dateList.value;
+    const createdAt = new Date().toLocaleString();
 
-    todoList.push({name,date});
+    todoList.push({name, date, createdAt});
     todoname.value = '';
     showInput();
 }

@@ -1,21 +1,30 @@
-.body{
+body{
     font-family: Arial, Helvetica, sans-serif;
-
+    background-color: rgb(58, 74, 74);
+}
+.todo-container{
+  width: 500px;
+  margin: 120px auto;
+  color: white;
 }
 .todo-grid,
 .todo-input-grid {
   display: grid;
-  grid-template-columns: 200px 150px 100px;
+  grid-template-columns: 200px 150px 200px 100px;
   column-gap: 10px;
   row-gap: 10px;
   align-items: center;
 }
-
+.todo-heading{
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+}
 .todo-input-grid {
   margin-bottom: 10px;
   align-items: stretch;
 }
-
 .name-input,
 .date-input {
   font-size: 15px;
