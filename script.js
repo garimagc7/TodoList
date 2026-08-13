@@ -33,6 +33,15 @@ function jsInput(){
      if (name === '' || date === '') {
         return;
     }
+     const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const minDate = tomorrow.toISOString().split('T')[0];
+
+    if (date < minDate) {
+        alert('Please select a future date.');
+        return;
+    }
     todoList.push({name, date, createdAt});
     todoname.value = '';
     dateList.value = '';
